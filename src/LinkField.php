@@ -19,6 +19,7 @@ use SilverStripe\Forms\GridField\GridFieldDataColumns;
 use SilverStripe\Control\HTTPRequest;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use SilverShop\HasOneField\HasOneButtonField;
+use SilverStripe\Core\Validation\ValidationResult;
 
 /**
  * LinkField
@@ -266,9 +267,14 @@ class LinkField extends FormField
         return $this->linkConfig;
     }
 
-    public function validate($validator)
+    public function validate(): ValidationResult
     {
-        $valid = $this->Field()->validate($validator);
-        return $valid;
+        $result = parent::validate();
+
+        if (!$this->Field()->validate()) {
+            $result->addError(sprintf('%s is invalid', $this->Field()));
+        }
+
+        return $result;
     }
 }
