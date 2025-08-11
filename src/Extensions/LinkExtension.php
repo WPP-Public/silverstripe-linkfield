@@ -21,7 +21,7 @@ class LinkExtension extends Extension
         // Set default Type value.
         $types = array_keys($this->owner->getTypes());
         $typeField = $fields->dataFieldByName('Type');
-        if (!in_array($typeField->Value(), $types)) {
+        if (!in_array($typeField->getValue(), $types)) {
             $typeField->setValue($types[0]);
         }
     }
