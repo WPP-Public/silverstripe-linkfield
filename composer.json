@@ -17,9 +17,9 @@
   ],
   "homepage": "http://github.com/gorriecoe/silverstripe-linkfield",
   "require": {
-    "gorriecoe/silverstripe-link": "^1.0",
-    "silvershop/silverstripe-hasonefield": "4.1.0",
-    "symbiote/silverstripe-gridfieldextensions": "^4.0"
+    "gorriecoe/silverstripe-link": "dev-master",
+    "silvershop/silverstripe-hasonefield": "dev-main",
+    "symbiote/silverstripe-gridfieldextensions": "^5"
   },
   "extra": {
     "installer-name": "linkfield",
@@ -32,5 +32,11 @@
       "composer/installers": true,
       "silverstripe/vendor-plugin": true
     }
-  }
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "git@github.com:WPP-Public/silverstripe-link.git"
+    }
+  ]
 }
